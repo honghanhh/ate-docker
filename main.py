@@ -1,7 +1,7 @@
 # Dependencies
 import torch
 import torch.nn.functional as F
-device = torch.device('cuda')
+device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
 from utils import *
 from canonical_utils import *

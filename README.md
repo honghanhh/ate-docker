@@ -1,4 +1,4 @@
-# Automatic Term Extraction API 
+# Automatic Term Extraction API
 
 ## 1. Description
 In this repo, we wrote an API to inference SloBERTa term extractor, whose model has been trained with [RSDO5 corpus](https://www.clarin.si/repository/xmlui/handle/11356/1400). Feel free to check out this [repo](https://github.com/honghanhh/ate-2022) for better understanding about the methodology.
@@ -36,6 +36,14 @@ Press CTRL+C to quit
 We suggest you use POSTMAN or Hoppscotch to test the API with an uploaded file as the output whose format is CONLL-like (plese check out [temp_1.conllu](temp_1.conllu)). See the demonstration as the image below.
 
 ![demo](./imgs/demo.png)
+
+
+## 4. Docker version
+Run the following command:
+```python
+docker build -t ate .  
+docker run -d -p 5000:5000 ate
+```
 
 ## Contributors:
 - 🐮 [TRAN Thi Hong Hanh](https://github.com/honghanhh) 🐮
