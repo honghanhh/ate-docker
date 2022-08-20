@@ -15,6 +15,8 @@ pip install -r requirements.txt
 
 ## 3. Implementation
 
+Download the model from [pytorch_model.bin](https://kt-cloud.ijs.si/index.php/s/T4qtSKxbxgqr6c5) and save it into `./model/term_extractor/`.
+
 Run the following command on the terminal:
 
 ```python
