@@ -51,7 +51,8 @@ def predict():
     df = df.sort_values(by=['lemma','prob'], ascending=True)
     df = df.drop_duplicates(subset=['lemma'], keep='last')
     df['canonical'] = process(df['terms'])
-    df = df[['terms','lemma','pos','msd','prob']].rename({'prob':'ranking'})
+    df = df[['terms', 'canonical', 'lemma','pos','msd','prob']].rename(columns={'prob':'ranking'})
+    # print(df.head(5))
     return jsonify(df.to_dict(orient='records'))
 
 
