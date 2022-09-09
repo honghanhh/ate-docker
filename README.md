@@ -39,7 +39,6 @@ We suggest you use POSTMAN or Hoppscotch to test the API with an uploaded file a
 
 ![demo](./imgs/demo.png)
 
-
 ## 4. Docker version
 Run the following command:
 ```python
@@ -47,5 +46,12 @@ docker build -t ate .
 docker run -d -p 5000:5000 ate
 ```
 
-## Contributors:
+## 5. References
+The term extraction tool is an updated version of Tran et al. (2022), using the SloBERTa model.
+
+Hanh Thi Hong Tran, Matej Martinc, Andraz Repar, Antoine Doucet and Senja Pollak: A Transformer-based Sequence-labeling Approach to the Slovenian Cross-domain Automatic Term Extraction. Proc. of Jezikovne tehnologije in digitalna humanistika, 2022.
+
+## 6. Contributors:
 - 🐮 [TRAN Thi Hong Hanh](https://github.com/honghanhh) 🐮
+- Matej Martinc
+- Senja Pollak
