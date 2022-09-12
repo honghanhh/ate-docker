@@ -66,7 +66,7 @@ def find_canon(term):
         if len(term.words) == 1:
             head2 = term.words[0]
             lem = Lemmatizer()
-            lem.load_model(os.path.join('.//model/lemmagen_models/kanon.bin'))
+            lem.load_model(os.path.join('./model/lemmagen_models/kanon.bin'))
             head_form = lem.lemmatize(head2.text.lower())
             return head_form
         else:
