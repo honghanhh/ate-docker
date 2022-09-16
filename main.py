@@ -54,7 +54,12 @@ def predict():
     df = df[['terms', 'canonical', 'lemma','pos','msd','prob']].rename(columns={'prob':'ranking'})
     # sort by ranking 
     # print(df.head(5))
-    return jsonify(df.to_dict(orient='records'))
+    df = df[df['pos'] != 'PUNCT']
+    df = df.query("terms.str.len() > 2")
+    df = df.sort_values('ranking', ascending=False).drop_duplicates(subset=['terms','lemma'], keep = 'first').sort_index()
+    print(df.head(5))
+    return df.to_json(orient='records')
+    # return jsonify(df.to_dict(orient='records'))
 
 
 if __name__ == '__main__':
