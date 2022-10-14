@@ -35,9 +35,10 @@ Press CTRL+C to quit
  * Debugger PIN: 185-520-689
 ```
 
-We suggest you use POSTMAN or Hoppscotch to test the API with an uploaded file as the output whose format is CONLL-like (plese check out [temp_1.conllu](temp_1.conllu)). See the demonstration as the image below.
+We suggest you use POSTMAN or Hoppscotch to test the API with an uploaded file as the output whose format is CONLL-like (plese check out [temp.conllu](temp.conllu)). See the demonstration as the image below.
 
-![demo](./imgs/demo.png)
+<!-- ![demo](./imgs/demo.png) -->
+![demo](./imgs/sample_results.png)
 
 ## 4. Docker version
 Run the following command:
