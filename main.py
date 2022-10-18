@@ -54,12 +54,14 @@ def predict():
         df = df.sort_values(by=['lemma','prob'], ascending=True)
         df = df.drop_duplicates(subset=['lemma'], keep='last')
         df['canonical'] = process(df['terms']) 
-        corpus = ' '.join(lemma[0])
+        corpus = ' '.join([' '.join(x) for x in lemma])
         df['term_freq'] = [corpus.count(x) for x in df['lemma']]
         df = df[['terms', 'term_freq', 'canonical', 'lemma','pos','msd','prob']].rename(columns={'prob':'ranking'})
         df = df[df['pos'] != 'PUNCT']
         df = df.query("terms.str.len() > 2")
-        df = df.sort_values('ranking', ascending=False).drop_duplicates(subset=['terms','lemma'], keep = 'first').sort_index()
+        df = df.drop_duplicates(subset=['terms','lemma'], keep = 'first')
+        df = df.sort_values(by=['ranking'], ascending=False)
+        # print(df.head(5))
         return df.to_json(orient='records')
 
 
