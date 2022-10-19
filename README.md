@@ -35,15 +35,6 @@ Press CTRL+C to quit
  * Debugger PIN: 185-520-689
 ```
 
-We suggest you use POSTMAN or Hoppscotch to test the API with an uploaded file as the output whose format is CONLL-like (plese check out [temp.conllu](temp.conllu)). See the demonstration as the image below.
-
-The input format:
-
-![demo](./imgs/sample_input.png)
-
-The output format:
-![demo](./imgs/demo.png)
-
 ## 4. Docker version
 Run the following command:
 ```python
@@ -97,6 +88,11 @@ Please check out the format example below:
     ...
 ]
 ```
+
+We suggest you use POSTMAN or Hoppscotch to test the API with an uploaded file as the output whose format is CONLL-like (plese check out [temp.conllu](temp.conllu)). See the demonstration as the image below.
+
+The output format:
+![demo](./imgs/demo.png)
 
 ## 6. References
 
