@@ -6,12 +6,13 @@ import string
 import classla
 from lemmagen3 import Lemmatizer
 
-classla.download("sl", logging_level="WARNING")
+# classla.download("sl", logging_level="WARNING")
 classla_nlp_pipeline = classla.Pipeline(
     lang="sl",
     processors="tokenize,pos,lemma,depparse",
     tokenize_pretokenized=True,
     logging_level="WARNING",
+    download_method=None
 )
 
 def _resolve_lemmagen_model_loc(model_name):
