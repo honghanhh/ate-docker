@@ -1,13 +1,10 @@
-import logging
-logging.error("start")
 # Dependencies
 import torch
 import torch.nn.functional as F
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
-from utils import *
-from canonical_utils import *
-logging.error("imported canonical_utils")
+from .utils import *
+from .canonical_utils import *
 
 from flask import Flask, request, jsonify
 from transformers import AutoTokenizer, AutoModelForTokenClassification 
@@ -16,9 +13,8 @@ from transformers import AutoTokenizer, AutoModelForTokenClassification
 app = Flask(__name__)
 
 label_list=["n", "B-T", "T"]
-tokenizer = AutoTokenizer.from_pretrained('./model/term_extractor/')
-model = AutoModelForTokenClassification.from_pretrained('./model/term_extractor/', num_labels=len(label_list)).to(device)
-logging.error("loaded model")
+tokenizer = AutoTokenizer.from_pretrained('/app/model/term_extractor/')
+model = AutoModelForTokenClassification.from_pretrained('/app/model/term_extractor/', num_labels=len(label_list)).to(device)
 
 @app.route('/predict',methods=['POST'])
 def predict():

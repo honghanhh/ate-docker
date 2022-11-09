@@ -17,7 +17,7 @@ classla_nlp_pipeline = classla.Pipeline(
 
 def _resolve_lemmagen_model_loc(model_name):
     basedir = os.path.dirname(__file__)
-    return os.path.join(basedir, "model/lemmagen_models", model_name)
+    return os.path.join(basedir, "/app/model/lemmagen_models", model_name)
 
 _canon_lemmatizer = Lemmatizer()
 _canon_lemmatizer.load_model(_resolve_lemmagen_model_loc("kanon.bin"))

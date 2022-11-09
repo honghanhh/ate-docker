@@ -14,15 +14,12 @@ ENV PYTHONDONTWRITEBYTECODE=1 \
     PYTHONUNBUFFERED=1 \
     PATH="/home/appuser/.local/bin:${PATH}"
 
-# RUN apk add --no-cache gcc musl-dev
-RUN pip install --user gunicorn
-
 # Install pip requirements
 COPY requirements.txt .
-RUN python -m pip install --user -r requirements.txt
+RUN --mount=type=cache,target=/home/appuser/.cache/pip,uid=5678 python -m pip install --user -r requirements.txt
 RUN python -c "import classla; classla.download('sl')"
-WORKDIR /app
+# WORKDIR /app
 COPY . /app
 
 # During debugging, this entry point will be overridden. For more information, please refer to https://aka.ms/vscode-docker-python-debug
-CMD ["gunicorn", "--bind", "0.0.0.0:5000", "--timeout", "128", "main:app"]
+CMD ["gunicorn", "--bind", "0.0.0.0:5000", "--timeout", "128",  "app.main:app"]
